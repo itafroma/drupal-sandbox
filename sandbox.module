@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Sandbox module.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function sandbox_menu() {
+  $items['sandbox'] = array(
+    'page callback' => 'sandbox_view',
+    'access arguments' => array('access content'),
+    'title' => 'Sandbox',
+    'file' => 'sandbox.pages.inc',
+  );
+  return $items;
+}

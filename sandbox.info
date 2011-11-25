@@ -1,0 +1,5 @@
+name = "Sandbox"
+description = "Sandbox module for quickly testing the Drupal API."
+core = 7.x
+package = Development
+dependencies[] = devel
