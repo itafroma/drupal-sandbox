@@ -1,0 +1,86 @@
+<?php
+
+/**
+ * @file
+ * Installation hooks for the Sandbox module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function sandbox_install() {
+  $t = get_t();
+  $shortcut_set = new stdClass();
+  $shortcut_set->title = $t('Development');
+  $shortcut_set->set_name = 'shortcut-set-sandbox';
+  $shortcut_set->links = array(
+    array(
+      'link_path' => 'node/add',
+      'link_title' => $t('Add content'),
+      'weight' => -20,
+    ),
+    array(
+      'link_path' => 'admin/content',
+      'link_title' => $t('Find content'),
+      'weight' => -19,
+    ),
+    array(
+      'link_path' => 'sandbox',
+      'link_title' => $t('Sandbox'),
+      'weight' => -18,
+    ),
+    array(
+      'link_path' => 'devel/cache/clear',
+      'link_title' => $t('Clear cache'),
+      'weight' => -17,
+    ),
+    array(
+      'link_path' => 'devel/menu/reset',
+      'link_title' => $t('Rebuild menus'),
+      'weight' => -16,
+    ),
+    array(
+      'link_path' => 'devel/cache/clear',
+      'link_title' => $t('Clear cache'),
+      'weight' => -15,
+    ),
+    array(
+      'link_path' => 'devel/menu/reset',
+      'link_title' => $t('Rebuild menus'),
+      'weight' => -14,
+    ),
+    array(
+      'link_path' => 'devel/reinstall',
+      'link_title' => $t('Reinstall modules'),
+      'weight' => -13,
+    ),
+    array(
+      'link_path' => 'devel/run-cron',
+      'link_title' => $t('Run cron'),
+      'weight' => -12,
+    ),
+    array(
+      'link_path' => 'devel/theme/registry',
+      'link_title' => $t('Theme registry'),
+      'weight' => -11,
+    ),
+    array(
+      'link_path' => 'devel/variable',
+      'link_title' => $t('Variable editor'),
+      'weight' => -10,
+    ),
+  );
+  shortcut_set_save($shortcut_set);
+
+  $account = new stdClass();
+  $account->uid = 1;
+  shortcut_set_assign_user($shortcut_set, $account);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function sandbox_uninstall() {
+  // Delete shortcut set.
+  menu_delete_links('shortcut-set-sandbox');
+}
