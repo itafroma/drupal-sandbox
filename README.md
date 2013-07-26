@@ -21,7 +21,7 @@ or `sites/example.com` and run `composer install`:
 ```json
 {
     "require": {
-        "itafroma/drupal-sandbox": "~1.0.0",
+        "itafroma/drupal-sandbox": "~7.1.0",
     }
 }
 ```

@@ -1,7 +1,7 @@
 {
     "name": "itafroma/drupal-sandbox",
     "description": "Sandbox module for quickly testing the Drupal API",
-    "version": "1.0.0",
+    "version": "7.1.0",
     "type": "drupal-module",
     "keywords": ["drupal", "development"],
     "homepage": "http://github.com/itafroma/drupal-sandbox",
